@@ -1,0 +1,19 @@
+const mongoose = require('mongoose');
+
+
+mongoose.connect('mongodb+srv://dayasagar:dayasagar@cluster0.d5zd5nu.mongodb.net/curd', {useNewUrlParser: true, useUnifiedTopology: true})
+.then(() => console.log('Connected to MongoDB...'))
+.catch(err => console.error(err));
+
+
+const userSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    mobile: String,
+    password: String
+});
+
+const user = mongoose.model('user', userSchema);
+
+
+module.exports = user;
